@@ -1,0 +1,100 @@
+.global-nav {
+	background-color: white;
+	padding: 8px 0;
+	text-align: right;
+	width:100%;
+	@include transition-duration(.4s);
+	.navbar-header{
+		width:100%;
+	}
+	a.navbar-brand {
+		position: relative;
+		float:left!important;
+		img {
+			transform-origin: 51px 16px;
+			transition-delay: 0s;
+			transition-duration: 0.3s;
+			transition-property: all;
+			transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+			x: 0px;
+			y: 0px;
+		}
+
+		@include breakpoint(sm) {
+			top: 0;
+			display: inline;
+			text-align: center !important;
+			float: none;
+			margin: 0 auto;
+			img {
+				width: 134px;
+				position:relative;
+				top:4px;
+				left:10px;
+			}
+		}
+	}
+
+	.navbar-form {
+		padding: 19px 0;
+		margin: 0;
+		.btn {
+			background: none;
+			border: 1px solid rgba(255,255,255,.5);
+			padding: 10px 20px;
+			&:hover {
+				border-color: rgba(255,255,255,1);
+			}
+		}
+	}
+
+	ul.navbar-nav {
+		display: inline-block;
+		float: none;
+		vertical-align: top;
+		text-align: center;
+		margin:0!important;
+
+		li {
+			font-size: 16px;
+			float:left!important;
+			a {
+				padding-right: 20px;
+				@include breakpoint(sm) {
+					padding-right:0;
+					padding-left:30px;
+				}
+
+				padding-top: 4px;
+				padding-bottom: 4px;
+				margin-top: 21px;
+				color: $header-text-color;
+				@include transition-duration(.2s);
+				&:hover{
+					color:shade($header-text-color,90%);
+				}
+			}
+			@include breakpoint(sm) {
+				font-size: 13px;
+			}
+			&.search-jobs-toggle{
+				visibility:hidden;
+			}
+		}
+	}
+	.btn{
+		&.btn-header {
+			padding: 8px 20px !important;
+			font-size: 14px;
+			position:relative;
+			font-weight:700;
+			top:-3px;
+		}
+	}
+	.btn-default{
+		border: none;
+		&:hover, &:active, &:focus{
+			border:none;
+		}
+	}
+}

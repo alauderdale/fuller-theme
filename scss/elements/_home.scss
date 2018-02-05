@@ -1,0 +1,44 @@
+.homepage-hero{
+	position:relative;
+	.title-container{
+		width:100%;
+		background:rgba(0,0,0,.4);
+		@extend %white_text;
+		padding:$baseline;
+		position:absolute;
+		bottom:0;
+		@include breakpoint(sm) {
+			position:relative;
+			background:$secondary-color;
+			text-align:center;
+		}
+	}
+}
+
+.home-search-panel{
+	margin-top:$baseline/2;
+	background:#F3F3F3;
+	width:100%;
+	padding:$baseline;
+	form{
+		.form-group{
+			width:37%;
+			input{
+				width:100%;
+			}
+			@include breakpoint(sm) {
+				width:100%;
+			}
+
+		}
+		.btn{
+			width:24%;
+			padding-top:12px;
+			padding-bottom:12px;
+			@include breakpoint(sm) {
+				width:100%;
+			}
+		}
+	}
+
+}

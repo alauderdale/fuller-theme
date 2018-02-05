@@ -1,0 +1,19 @@
+.well{
+	border:none!important;
+	box-shadow:none!important;
+	background:$off-white-color;
+}
+
+.panel{
+	box-shadow:$box-shadow-elv-one;
+	.panel-body{
+		padding:$baseline;
+	}
+	.panel-footer{
+		background:white;
+	}
+}
+
+.list-group-item{
+	border-color:tint($border-color,20%);
+}

@@ -1,0 +1,21 @@
+.post-a-job-promo{
+	background-color:$secondary-color;
+	width:100%;
+	@extend %white_text;
+	padding:$baseline*2;
+	border-radius:3px;
+	@include breakpoint(sm) {
+		text-align:center;
+	}
+	.button-container{
+		float:right;
+		@include breakpoint(lg) {
+			margin-top:17px;
+		}
+
+		@include breakpoint(sm) {
+			float:none;
+			margin-top:$baseline;
+		}
+	}
+}

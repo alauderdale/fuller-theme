@@ -1,0 +1,25 @@
+
+footer {
+	&.global-footer{
+		background:white;
+		border-top:1px solid $border-color;
+		padding:$baseline*2 0;
+		ul.social-list{
+			@include breakpoint(sm) {
+				float:left;
+				margin-top:$baseline;
+			}
+
+			float:right;
+			margin-top:10px;
+			li{
+				a{
+					color:$text-color;
+					&:hover{
+						color:shade($text-color,80%);
+					}
+				}
+			}
+		}
+	}
+}

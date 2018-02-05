@@ -1,0 +1,30 @@
+
+//sections
+section{
+  padding:$baseline*2 0;
+  &.inverse-section{
+  	@extend %white_text;
+    a{
+      color:white;
+      text-decoration:underline;
+    }
+  }
+  &.white-section{
+    background:white;
+  }
+  &.gradient-section{
+    // background:red;
+    @include linear-gradient(-45deg, #09C4A0 0%, #2EB0D7 100%);
+  }
+  &.bg-cover{
+    background:cenrer no-repeat 100%;
+    background-size:cover;
+    background-position:center center;
+  }
+  &.off-white-bg{
+    background:#F8FCFF;
+  }
+  &.bordered-section{
+    border-bottom:1px solid #ECF0F5;
+  }
+}

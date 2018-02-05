@@ -1,0 +1,67 @@
+
+
+
+.post-a-job-form{
+	padding:$baseline*2;
+	@include breakpoint(sm) {
+		padding:$baseline;
+	}
+
+	input[type=text], select{
+		@extend .form-control;
+		@extend .input-lg;
+	}
+
+	input[type=submit]{
+		@extend .btn;
+		@extend .btn-primary;
+		@extend .btn-block;
+		@extend .btn-lg;
+		clear:both;
+		margin-top:$baseline;
+		display:inline-block;
+	}
+
+	fieldset{
+		padding:0;
+		border:none;
+	}
+
+
+	label{
+		width:100%!important;
+		float:none;
+	}
+	.job-manager-form fieldset div.field{
+		width:100%;
+		float:none;
+	}
+
+	h2{
+		text-transform:uppercase;
+		font-family:$bold-font-name;
+		font-size:20px;
+		color:$text-color;
+		margin:$baseline*2 0 $baseline  0;
+	}
+
+
+	fieldset[class^="fieldset-state"] {
+	    float: left;
+	    width: 48%;
+	    margin-right:4%;
+	}
+	fieldset[class^="fieldset-zip"] {
+	    float: left;
+	    width: 48%;
+	}
+
+	.success-post{
+		text-align: center;
+		display: inline-block;
+		line-height: 2.1rem;
+		font-family:$medium-font-name;
+		width:100%;
+	}
+
+}

@@ -1,0 +1,33 @@
+
+
+
+.btn {
+	border-radius:3px;
+	font-family:$bold-font-name;
+	text-transform:uppercase;
+	font-size:16px;
+	&.btn-primary {
+		background-color: $primary-color;
+		border-color: $primary-color;
+		color: white !important;
+
+		// @include transition-duration(.4s);
+		&:hover, &:focus, &:active {
+			color: white !important;
+			background-color: shade($primary-color,20%)!important;
+			border-color: shade($primary-color,20%)!important;
+			box-shadow:none;
+			
+		}
+	}
+}
+
+li a, a {
+	color: $link-color;
+	&:hover{
+		text-decoration: none;
+		color: shade($link-color,20%)
+	}
+}
+
+
