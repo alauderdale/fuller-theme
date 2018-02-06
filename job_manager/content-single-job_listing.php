@@ -18,39 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post;
 ?>
-<div class="single_job_listing">
-	<?php if ( get_option( 'job_manager_hide_expired_content', 1 ) && 'expired' === $post->post_status ) : ?>
-		<div class="job-manager-info"><?php _e( 'This listing has expired.', 'wp-job-manager' ); ?></div>
-	<?php else : ?>
-		<?php
-			/**
-			 * single_job_listing_start hook
-			 *
-			 * @hooked job_listing_meta_display - 20
-			 * @hooked job_listing_company_display - 30
-			 */
-			do_action( 'single_job_listing_start' );
-		?>
-
-		<div class="job_description">
-			<?php wpjm_the_job_description(); ?>
-		</div>
-
-		<?php if ( candidates_can_apply() ) : ?>
-			<?php get_job_manager_template( 'job-application.php' ); ?>
-		<?php endif; ?>
-
-		<?php
-			/**
-			 * single_job_listing_end hook
-			 */
-			do_action( 'single_job_listing_end' );
-		?>
-	<?php endif; ?>
-</div>
-
-
-
 
 
 <div class='main'>
@@ -61,13 +28,8 @@ global $post;
 					<div class='half-margin-top'>
 						<ol class='breadcrumb'>
 							<li>
-								<a href='/'>
-									Jobs
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Church Ministry
+								<a href='<?php echo get_permalink( get_page_by_path( 'jobs' ) ); ?>'>
+									Job search
 								</a>
 							</li>
 							<li class='active'>
@@ -77,172 +39,230 @@ global $post;
 					</div>
 				</div>
 			</div>
-			<div class='row'>
-				<div class='col-lg-12'>
-					<div class='panel'>
-						<div class='panel-body'>
-							<div class='col-sm-9'>
-								<div class='media'>
-									<div class='media-left hidden-xs'>
-										<img class='media-object quarter-margin-right' src='../../images/job-image-placeholder.png' width='155px'>
-									</div>
-									<div class='media-body'>
-										<div class='media-heading'>
-											<h3>
-												<?php the_job_field( 'job_title' );?>
-												<br>
-												<?php the_job_field( 'job_location' );?>
-											</h3>
+			<div class="single_job_listing">
+				<?php if ( get_option( 'job_manager_hide_expired_content', 1 ) && 'expired' === $post->post_status ) : ?>
+					<div class='row'>
+						<div class='col-lg-12'>
+							<div class='panel'>
+								<div class='panel-body'>
+									<div class="job-manager-info"><?php _e( 'This listing has expired.', 'wp-job-manager' ); ?></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php else : ?>
+					<div class='row'>
+						<div class='col-lg-12'>
+							<div class='panel'>
+								<div class='panel-body'>
+									<div class='col-sm-9'>
+										<div class='media'>
+											<div class='media-left hidden-xs'>
+												<img class='media-object quarter-margin-right' src='<?php bloginfo('template_url'); ?>/images/job-image-placeholder.png' width='155px'>
+											</div>
+											<div class='media-body'>
+												<div class='media-heading'>
+													<h3>
+														<?php the_job_field( 'job_title' );?>
+														<br>
+														<?php the_job_field( 'job_location' );?>
+													</h3>
+												</div>
+											</div>
 										</div>
+									</div>
+									<div class='col-sm-3'>
+
+									<?php if ( get_company_field( 'application_method_link' ) ) : ?>
+										<a class='btn btn-block btn-primary half-margin-top' href='<?php the_job_field( 'application_method_link' );?>' target='_blank'>
+											Apply Now
+										</a>
+										
+									<?php elseif ( get_company_field( 'application_method_upload_application' )) : ?>
+										<a class='btn btn-block btn-primary half-margin-top' href='<?php the_job_field( 'application_method_upload_application' );?>' target='_blank'>
+											Download Application
+										</a>
+									<?php elseif ( get_company_field( 'application_method_custom' )) : ?>
+										<button type="button" class="btn btn-block btn-primary half-margin-top" data-toggle="modal" data-target="#applicationInstructionsModal">
+										  Application instructions
+										</button>
+									<?php endif; ?>
+
+
+
+
 									</div>
 								</div>
 							</div>
-							<div class='col-sm-3'>
-								<a class='btn btn-block btn-primary half-margin-top' href='#'>
-									Apply Now
-								</a>
+						</div>
+					</div>
+					<div class='row'>
+						<div class='col-sm-9'>
+							<div class='panel'>
+								<div class='panel-body'>
+									<div class='page-header no-margin-top'>
+										<h4 class='text-uppercase bold-font-name dark-text-color no-margin-bottom'>
+											About the job
+										</h4>
+									</div>
+									<?php wpjm_the_job_description(); ?>
+								</div>
+							</div>
+							<div class='panel'>
+								<div class='panel-body'>
+									<div class='page-header no-margin-top'>
+										<h4 class='text-uppercase bold-font-name dark-text-color no-margin-bottom'>
+											Organization Information
+										</h4>
+									</div>
+									<div class='margin-bottom'>
+										<p class='bold-font-name dark-text-color quarter-margin-bottom'>
+											Address
+										</p>
+										<p>
+											<?php the_company_field( 'company_name' );?>
+											<br>
+											<?php the_company_field( 'address' );?>
+											<?php the_company_field( 'address_line_2' );?>
+											<br>
+											<?php the_company_field( 'city' );?>,  <?php the_company_field( 'state' );?>  <?php the_company_field( 'zip' );?>
+										</p>
+									</div>
+									<div class='margin-bottom'>
+										<p class='bold-font-name dark-text-color quarter-margin-bottom'>
+											Contact
+										</p>
+										<p>
+											<?php the_job_field( 'contact_name' );?>
+											<br>
+											<?php the_job_field( 'contact_phone' );?>
+											<br>
+											<a href='mailto:<?php the_job_field( 'contact_email' );?>'>
+												<?php the_job_field( 'contact_email' );?>
+											</a>
+										</p>
+									</div>
+										<?php if ( get_company_field( 'company_website' ) ) { ?>
+											<p class='bold-font-name dark-text-color quarter-margin-bottom'>
+												Website
+											</p>
+											<?php the_company_field( 'company_website', null, array( 'output_as' => 'link' ) );?>
+										<?php 
+											} else { 
+										?>
+											    
+										<?php 
+											}
+										?>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class='col-sm-3'>
+							<div class='panel'>
+								<div class='panel-body'>
+									<div class='page-header no-margin-top'>
+										<h4 class='text-uppercase bold-font-name dark-text-color no-margin-bottom'>
+											Details
+										</h4>
+									</div>
+									<div class='margin-bottom'>
+										<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
+											Location
+										</h5>
+										<h5>
+											<?php the_job_field( 'job_location' );?>
+										</h5>
+									</div>
+									<div class='margin-bottom'>
+										<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
+											Job type
+										</h5>
+										<h5>
+											<?php the_job_field( 'job_type' );?>
+										</h5>
+									</div>
+									<div class='margin-bottom'>
+										<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
+											Posted
+										</h5>
+										<h5>
+											<?php the_job_publish_date(); ?>
+										</h5>
+									</div>
+									<div class='margin-bottom'>
+										<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
+											Hours/week
+										</h5>
+										<h5>
+											<?php the_job_field( 'hours' );?>
+										</h5>
+									</div>
+									<div class='margin-bottom'>
+										<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
+											Pay rate
+										</h5>
+										<h5>
+											<?php the_job_field( 'pay_rate' );?>
+										</h5>
+									</div>
+									<div class='margin-bottom'>
+										<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
+											Ordained position
+										</h5>
+										<h5>
+											<?php the_job_field( 'ordination_requirement' );?>
+										</h5>
+									</div>
+									<div class='margin-bottom'>
+										<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
+											Exempt status
+										</h5>
+										<h5>
+											<?php the_job_field( 'exempt_status' );?>
+										</h5>
+									</div>
+									<div class='margin-bottom'>
+										<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
+											Skills
+										</h5>
+										<h5>
+											<?php the_job_field( 'job_tags' );?>
+										</h5>
+									</div>
+									<div class='margin-bottom'>
+										<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
+											Industries
+										</h5>
+										<h5>
+											<?php the_job_field( 'industries' );?>
+										</h5>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class='row'>
-				<div class='col-sm-9'>
-					<div class='panel'>
-						<div class='panel-body'>
-							<div class='page-header no-margin-top'>
-								<h4 class='text-uppercase bold-font-name dark-text-color no-margin-bottom'>
-									About the job
-								</h4>
-							</div>
-							<?php wpjm_the_job_description(); ?>
-						</div>
-					</div>
-					<div class='panel'>
-						<div class='panel-body'>
-							<div class='page-header no-margin-top'>
-								<h4 class='text-uppercase bold-font-name dark-text-color no-margin-bottom'>
-									Organization Information
-								</h4>
-							</div>
-							<div class='margin-bottom'>
-								<p class='bold-font-name dark-text-color quarter-margin-bottom'>
-									Address
-								</p>
-								<p>
-									Hope Covenant Church (Evangelical Covenant Church)
-									<br>
-									1770 S Dobson Road
-									<br>
-									Chandler,  AZ  85286
-									<br>
-									United States
-								</p>
-							</div>
-							<div class='margin-bottom'>
-								<p class='bold-font-name dark-text-color quarter-margin-bottom'>
-									Contact
-								</p>
-								<p>
-									Doug Glynn
-									<br>
-									(480) 899-7255
-									<br>
-									<a href='mailto:jobs@hopecov.com'>
-										jobs@hopecov.com
-									</a>
-								</p>
-							</div>
-							<p class='bold-font-name dark-text-color quarter-margin-bottom'>
-								Website
-							</p>
-							<p>
-								<a href='mailto:jobs@hopecov.com'>
-									jobs@hopecov.com
-								</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class='col-sm-3'>
-					<div class='panel'>
-						<div class='panel-body'>
-							<div class='page-header no-margin-top'>
-								<h4 class='text-uppercase bold-font-name dark-text-color no-margin-bottom'>
-									Details
-								</h4>
-							</div>
-							<div class='margin-bottom'>
-								<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
-									Location
-								</h5>
-								<h5>
-									Evergreen, CO 80027
-								</h5>
-							</div>
-							<div class='margin-bottom'>
-								<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
-									Location
-								</h5>
-								<h5>
-									Evergreen, CO 80027
-								</h5>
-							</div>
-							<div class='margin-bottom'>
-								<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
-									Location
-								</h5>
-								<h5>
-									Evergreen, CO 80027
-								</h5>
-							</div>
-							<div class='margin-bottom'>
-								<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
-									Location
-								</h5>
-								<h5>
-									Evergreen, CO 80027
-								</h5>
-							</div>
-							<div class='margin-bottom'>
-								<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
-									Location
-								</h5>
-								<h5>
-									Evergreen, CO 80027
-								</h5>
-							</div>
-							<div class='margin-bottom'>
-								<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
-									Location
-								</h5>
-								<h5>
-									Evergreen, CO 80027
-								</h5>
-							</div>
-							<div class='margin-bottom'>
-								<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
-									Location
-								</h5>
-								<h5>
-									Evergreen, CO 80027
-								</h5>
-							</div>
-							<div class='margin-bottom'>
-								<h5 class='bold-font-name dark-text-color quarter-margin-bottom'>
-									Location
-								</h5>
-								<h5>
-									Evergreen, CO 80027
-								</h5>
-							</div>
-						</div>
-					</div>
-				</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</section>
 
 </div>
 
+
+<!-- custom description modal -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="applicationInstructionsModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Application instructions</h4>
+      </div>
+      <div class="modal-body">
+        <?php the_job_field( 'application_method_custom' );?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 

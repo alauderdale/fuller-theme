@@ -7,7 +7,7 @@
 		padding:$baseline;
 	}
 
-	input[type=text], select{
+	input[type=text],input[type=tel], input[type=email], input[type=url],textarea, select{
 		@extend .form-control;
 		@extend .input-lg;
 	}

@@ -35,7 +35,7 @@ Template Name: Home
 			<div class='row'>
 				<div class='col-lg-12'>
 					<div class='home-search-panel'>
-						<form class='form-inline' form method="GET" action="http://localhost:8888/fuller/jobs">
+						<form class='form-inline' form method="GET" action="<?php bloginfo('url')?>/fuller/jobs">
 							<div class='form-group'>
 								<div class='inner-addon left-addon'>
 									<i class='fa fa-search'></i>
@@ -70,111 +70,25 @@ Template Name: Home
 				<div class='col-lg-12'>
 					<div class='industries-list'>
 						<ul class='nav nav-pills nav-stacked'>
-							<li>
-								<a href='/listings'>
-									Accommodation and Food Services
+							<?php
+					            $wsubargs = array(
+					               'hierarchical' => 1,
+					               'show_option_none' => '',
+					               'hide_empty' => 0,
+					               'parent' => $wcatTerm->term_id,
+					               'taxonomy' => 'job_listing_category'
+					            );
+					            $wsubcats = get_categories($wsubargs);
+					            foreach ($wsubcats as $wsc):
+				            ?>
+					         <li>
+								<a href='<?php bloginfo('template_url'); ?>/jobs/?search_keywords=<?php echo $wsc->name;?>'>
+									<?php echo $wsc->name;?>
 								</a>
 							</li>
-							<li>
-								<a href='/listings'>
-									Administrative and Support Services
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Arts, Entertainment, and Recreation
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Church Ministry
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Construction
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Educational Services
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Finance and Insurance
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Government
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Health Care and Social Services
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Information
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Management of Companies and Enterprises
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Manufacturing
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Mission/Parachurch
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Other Services
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Professional, Scientific, and Technical Services
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Psychological Services
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Real Estate and Rental and Leasing
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Retail Trade
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Transportation
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Utilities
-								</a>
-							</li>
-							<li>
-								<a href='/listings'>
-									Wholesale Trade
-								</a>
-							</li>
+				         <?php
+				            endforeach;
+				            ?>  
 						</ul>
 					</div>
 				</div>
