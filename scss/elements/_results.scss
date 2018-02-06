@@ -84,32 +84,34 @@ a.result{
     left: 50%;
     margin-left: -340px;
 
-	form{
-		.form-group{
-			.inner-addon{
-				.fa{
-					font-size: 12px;
-					top:8px;
-				}
-			}
-			width:40%;
-			input{
-				width:100%;
-			}
-			@include breakpoint(sm) {
-				width:100%;
-			}
 
-		}
-		.btn{
-			width:17%;
-			font-size:14px;
-			padding:12px 0;
-			@include breakpoint(sm) {
-				width:100%;
+	.form-group, .search_keywords,.search_location{
+		.inner-addon{
+			.fa{
+				font-size: 12px;
+				top:8px;
 			}
+		}
+		width:40%!important;
+		float: none!important;
+		padding-left: 0!important;
+		input{
+			width:100%;
+		}
+		@include breakpoint(sm) {
+			width:100%;
+		}
+
+	}
+	.btn{
+		width:17%;
+		font-size:14px;
+		padding:12px 0;
+		@include breakpoint(sm) {
+			width:100%;
 		}
 	}
+
 	@include breakpoint(sm) {
 		width:100%;
 		left:0px;
