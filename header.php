@@ -39,7 +39,7 @@
           <div class='navbar-right'>
             <ul class='nav navbar-nav'>
               <li class='visible-xs search-jobs-toggle'>
-                <a href='<?php echo get_permalink( get_page_by_path( 'jobs' ) ); ?>'>
+                <a href='<?php echo get_permalink( get_page_by_path( 'jobs' ) ); ?>' onclick="return false;"">
                   <i class='fa fa-search'></i>
                   Jobs
                 </a>

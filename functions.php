@@ -139,6 +139,8 @@ function boiler_scripts_styles() {
 
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.js', '20120206', true );
 
+	wp_enqueue_script( 'auto-complete', get_template_directory_uri() . '/js/lib/jquery.auto-complete.js', '20120206', true );
+
 	wp_enqueue_script( 'boiler-main', get_template_directory_uri() . '/js/main.js', array(), '20120205', true );
 
 
@@ -261,6 +263,16 @@ function done_publish_job( $job_id ) {
 	}
 }
 add_action( 'job_manager_job_submitted', 'done_publish_job' );
+
+
+
+
+add_filter ('job_filter_tag_cloud', 'htdat_job_filter_tag_cloud');
+function htdat_job_filter_tag_cloud ( $atts ) {
+    // Change this to your own number
+    $atts['number'] = 6;
+    return $atts;
+}
 
 
 

@@ -51,7 +51,7 @@ global $job_manager;
 
 		<!-- Company Information Fields -->
 		<?php if ( $company_fields ) : ?>
-			<h2><?php _e( 'Company Details', 'wp-job-manager' ); ?></h2>
+			<h2><?php _e( '3. Company Details', 'wp-job-manager' ); ?></h2>
 
 			<?php do_action( 'submit_job_form_company_fields_start' ); ?>
 

@@ -4,6 +4,9 @@
 
 .customize-support .results-search-form {
   top: 50px;
+  @include breakpoint(sm) {
+    top:126px;
+  }
 }
 
 @media screen and (max-width: 782px) {

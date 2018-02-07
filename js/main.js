@@ -15,6 +15,19 @@ $(document).ready(function(){
     $( ".search-jobs-toggle" ).click(function() {
   		$( ".results-search-form" ).toggleClass( "search-on" );
 	});
-    
+
+
+    $('#search_keywords').autoComplete({
+                minChars: 1,
+                source: function(term, suggest){
+                    term = term.toLowerCase();
+                    var choices = (termslistjsonparsed);
+                    var suggestions = [];
+                    for (i=0;i<choices.length;i++)
+                        if (~choices[i].toLowerCase().indexOf(term)) suggestions.push(choices[i]);
+                    suggest(suggestions);
+                }
+            });
+
 
 });

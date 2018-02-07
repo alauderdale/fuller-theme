@@ -75,16 +75,16 @@ global $post;
 
 									<?php if ( get_company_field( 'application_method_link' ) ) : ?>
 										<a class='btn btn-block btn-primary half-margin-top' href='<?php the_job_field( 'application_method_link' );?>' target='_blank'>
-											Apply Now
+											Apply
 										</a>
 										
 									<?php elseif ( get_company_field( 'application_method_upload_application' )) : ?>
 										<a class='btn btn-block btn-primary half-margin-top' href='<?php the_job_field( 'application_method_upload_application' );?>' target='_blank'>
-											Download Application
+											Apply
 										</a>
 									<?php elseif ( get_company_field( 'application_method_custom' )) : ?>
 										<button type="button" class="btn btn-block btn-primary half-margin-top" data-toggle="modal" data-target="#applicationInstructionsModal">
-										  Application instructions
+										  Apply
 										</button>
 									<?php endif; ?>
 
@@ -257,9 +257,9 @@ global $post;
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Application instructions</h4>
+        <h4 class="modal-title half-padding-left">Application instructions</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body padded half-padding-top half-padding-bottom no-margin-bottom">
         <?php the_job_field( 'application_method_custom' );?>
       </div>
     </div><!-- /.modal-content -->

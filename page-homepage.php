@@ -4,15 +4,27 @@ Template Name: Home
  */
 ?>
 
-
 <?php get_header(); ?>
+
+
+<?php get_template_part( 'content', 'autocomplete' ); ?>
 
 	<style>
 	.global-nav{
 		border-bottom:none;
 	}
 	</style>
+
+        
+ 
+
 <div class='main'>
+
+
+
+
+<?php while ( have_posts() ) : the_post(); ?>
+
 	<section class='no-padding-top white-section'>
 		<div class='container'>
 			<div class='row'>
@@ -39,7 +51,7 @@ Template Name: Home
 							<div class='form-group'>
 								<div class='inner-addon left-addon'>
 									<i class='fa fa-search'></i>
-									<input id="search_keywords" name="search_keywords" class='form-control input-lg' placeholder='Keyword'>
+									<input id="search_keywords" name="search_keywords" class='form-control input-lg' placeholder='Keyword' type="text">
 								</div>
 							</div>
 							<div class='form-group'>
@@ -75,15 +87,15 @@ Template Name: Home
 					               'hierarchical' => 1,
 					               'show_option_none' => '',
 					               'hide_empty' => 0,
-					               'parent' => $wcatTerm->term_id,
 					               'taxonomy' => 'job_listing_category'
 					            );
 					            $wsubcats = get_categories($wsubargs);
 					            foreach ($wsubcats as $wsc):
 				            ?>
 					         <li>
-								<a href='<?php bloginfo('template_url'); ?>/jobs/?search_keywords=<?php echo $wsc->name;?>'>
+								<a href='<?php bloginfo('url'); ?>/jobs/?search_keywords=<?php echo $wsc->name;?>'>
 									<?php echo $wsc->name;?>
+									
 								</a>
 							</li>
 				         <?php
@@ -95,17 +107,12 @@ Template Name: Home
 			</div>
 		</div>
 	</section>
+	<?php endwhile; // end of the loop. ?>
 	<section class='white-section no-padding-bottom no-padding-top'>
 		<?php
 			get_template_part( 'content', 'promo' ); 
 		?>
 	</section>
 </div>
-
-
-
-
-
-
 
 <?php get_footer(); ?>

@@ -15,6 +15,24 @@ label{
   font-size:14px;
 }
 
+//autocomplete
+
+.autocomplete-suggestion b { 
+  font-family: $medium-font-name; 
+  color: shade($text-color,50%); 
+}
+
+.autocomplete-suggestion { 
+  position: relative; 
+  padding: 5px .8em!important; 
+  line-height: 23px; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  font-size:16px!important;
+  color: $text-color; 
+}
+
 /* enable absolute positioning */
 .inner-addon {
   position: relative;

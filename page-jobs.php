@@ -8,6 +8,8 @@ Template Name: Jobs
 
 <?php get_header(); ?>
 
+<?php get_template_part( 'content', 'autocomplete' ); ?>
+
 
 <div class='main'>
 		<style>
@@ -15,26 +17,13 @@ Template Name: Jobs
 			visibility:visible!important;
 		}
 		</style>
-	<section>
-
-
-<?php while ( have_posts() ) : the_post(); ?>
-
-
-
-
-<?php endwhile; // end of the loop. ?>
+	<section class="padding-top no-padding-bottom">
 
 		<div class='container'>
 			<div class='row'>
-				<div class='col-md-12'>
-
-					<div class='panel'>
 						<?php while ( have_posts() ) : the_post(); ?>
 							<?php the_content();?>
 						<?php endwhile; // end of the loop. ?>
-					</div>
-				</div>
 			</div>
 		</div>
 		<?php get_template_part( 'content', 'promo' ); ?>
