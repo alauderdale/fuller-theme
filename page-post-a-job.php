@@ -15,8 +15,11 @@ Template Name: Post a Job
 					Post a job
 				</h3>
 				<p>
-					Thank you for your interest in hiring Fuller students and graduates. Please fill out the form below to have your job opening posted to our site within 5 business days. Your post will remain online for 90 days, or until you inform us that the position has been filled.
+					<?php the_field('welcome_text');?>
 				</p>
+				<div class="padding-bottom text-left">
+					<?php get_template_part( 'content', 'disclaimer' ); ?>
+				</div>
 			</div>
 			<div class='col-sm-3'></div>
 		</div>

@@ -18,16 +18,27 @@ $(document).ready(function(){
 
 
     $('#search_keywords').autoComplete({
-                minChars: 1,
-                source: function(term, suggest){
-                    term = term.toLowerCase();
-                    var choices = (termslistjsonparsed);
-                    var suggestions = [];
-                    for (i=0;i<choices.length;i++)
-                        if (~choices[i].toLowerCase().indexOf(term)) suggestions.push(choices[i]);
-                    suggest(suggestions);
-                }
-            });
+        minChars: 1,
+        source: function(term, suggest){
+            term = term.toLowerCase();
+            var choices = (termslistjsonparsed);
+            var suggestions = [];
+            for (i=0;i<choices.length;i++)
+                if (~choices[i].toLowerCase().indexOf(term)) suggestions.push(choices[i]);
+            suggest(suggestions);
+        }
+    });
+
+  });
+
+    function activatePlacesSearch(){
+
+        var input = document.getElementById('search_location');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+    }
 
 
-});
+
+
+
+

@@ -43,6 +43,9 @@
 		font-size:20px;
 		color:$text-color;
 		margin:$baseline*2 0 $baseline  0;
+		&.header-header_position_info {
+			margin-top:0;
+		}
 	}
 
 

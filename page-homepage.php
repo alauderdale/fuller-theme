@@ -31,14 +31,14 @@ Template Name: Home
 				<div class='col-lg-12'>
 					<div class='homepage-hero'>
 						<div class='title-img'>
-							<img class='img-responsive' src='<?php bloginfo('template_url'); ?>/images/tmp/home-hero.png'>
+							<img class='img-responsive' src='<?php the_field('hero_image');?>'>
 						</div>
 						<div class='title-container'>
 							<h1 class='bold-font-name text-uppercase'>
-								Make the change of a lifetime
+								<?php the_field('hero_title');?>
 							</h1>
 							<h4>
-								Suspendisse at cursus nunc. Etiam fringilla mauris at ante euismod efficitur
+								<?php the_field('hero_subtext');?>
 							</h4>
 						</div>
 					</div>
@@ -51,13 +51,13 @@ Template Name: Home
 							<div class='form-group'>
 								<div class='inner-addon left-addon'>
 									<i class='fa fa-search'></i>
-									<input id="search_keywords" name="search_keywords" class='form-control input-lg' placeholder='Keyword' type="text">
+									<input id="search_keywords" name="search_keywords" class='form-control input-lg' placeholder='Keywords' type="text">
 								</div>
 							</div>
 							<div class='form-group'>
 								<div class='inner-addon left-addon'>
 									<i class='fa fa-map-marker'></i>
-									<input id="search_location" name="search_location" class='form-control input-lg' placeholder='Location'>
+									<input id="search_location" name="search_location" class='form-control input-lg' placeholder='City, state or zip'>
 								</div>
 							</div>
 							<button class='btn btn-primary btn-lg' type='submit'>
@@ -69,13 +69,16 @@ Template Name: Home
 			</div>
 		</div>
 	</section>
-	<section class='no-padding-top white-section'>
+	<section class='no-padding-top white-section no-padding-bottom'>
 		<div class='container'>
 			<div class='row margin-bottom'>
 				<div class='col-lg-12'>
 					<h3 class='text-center bold-font-name text-uppercase'>
-						Browse Jobs by industry
+						<?php the_field('browse_jobs_title');?>
 					</h3>
+					<div class=" padding-bottom">
+						<?php get_template_part( 'content', 'disclaimer' ); ?>
+					</div>
 				</div>
 			</div>
 			<div class='row'>
@@ -103,15 +106,14 @@ Template Name: Home
 				            ?>  
 						</ul>
 					</div>
+					
 				</div>
 			</div>
 		</div>
 	</section>
 	<?php endwhile; // end of the loop. ?>
 	<section class='white-section no-padding-bottom no-padding-top'>
-		<?php
-			get_template_part( 'content', 'promo' ); 
-		?>
+		<?php get_template_part( 'content', 'promo' ); ?>
 	</section>
 </div>
 

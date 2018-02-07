@@ -6,12 +6,15 @@
 					<div class='row'>
 						<div class='col-sm-9'>
 							<h2 class='medium-font-name'>
-								Looking to hire Fuller students or graduates?
+								<?php the_field('promo_title', 'option'); ?>
 							</h2>
+							<p>
+								<?php the_field('promo_subtext', 'option'); ?>	
+							</p>
 						</div>
 						<div class='col-sm-3'>
 							<div class='button-container'>
-								<a class='btn btn-primary btn-lg' href='<?php echo get_permalink( get_page_by_path( 'post a job' ) ); ?>'>
+								<a class='btn btn-primary btn-lg' href='<?php the_field('promo_link', 'option'); ?>'>
 									Post a Job here
 								</a>
 							</div>

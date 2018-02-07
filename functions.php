@@ -32,7 +32,6 @@ function boiler_setup() {
 	 */
 	register_nav_menus( array(
 		'menu-primary' => __( 'Primary Menu', 'boiler' ),
-		'menu-footer' => __( 'Footer Menu', 'boiler' ),
 		'menu-social' => __( 'Soaicl Menu', 'boiler' ),
 		'menu-social-two' => __( 'Soaicl Menu Two', 'boiler' )
 	) );
@@ -142,6 +141,11 @@ function boiler_scripts_styles() {
 	wp_enqueue_script( 'auto-complete', get_template_directory_uri() . '/js/lib/jquery.auto-complete.js', '20120206', true );
 
 	wp_enqueue_script( 'boiler-main', get_template_directory_uri() . '/js/main.js', array(), '20120205', true );
+
+
+
+
+	
 
 
 }

@@ -4,20 +4,64 @@ footer {
 		background:white;
 		border-top:1px solid $border-color;
 		padding:$baseline*2 0;
-		ul.social-list{
-			@include breakpoint(sm) {
-				float:left;
-				margin-top:$baseline;
-			}
+				ul.social-list {
+			list-style: none;
+			display: inline-block;
+			margin-bottom: 0;
+			float: right;
+			li {
+				float: left;
+				font-size: 43px;
+				line-height: 1em;
+			    padding-right: 10px;
+			    font-family: $social-font-name;
 
-			float:right;
-			margin-top:10px;
-			li{
-				a{
-					color:$text-color;
-					&:hover{
-						color:shade($text-color,80%);
+				a {
+					color:$light-text-color;
+					@include transition-duration(.1s);
+					border: none;
+					&:hover, &:focus{
+						color:shade($light-text-color,50%);
+						text-decoration: none;
 					}
+				}
+			}
+			@include breakpoint(sm) {
+				float: none;
+				text-align: center;
+				li{
+					text-align: center;
+					display: inline;
+				}
+			}
+		}
+		ul.social-list-two {
+			list-style: none;
+			display: inline-block;
+			margin-bottom: 0;
+			float: right;
+			li {
+				float: left;
+				font-size: 43px;
+				line-height: 1em;
+			    padding-right: 10px;
+			    font-family: $social-font-name-two;
+				a {
+					color:$light-text-color;
+					@include transition-duration(.1s);
+					border: none;
+					&:hover, &:focus{
+						color:shade($light-text-color,50%);
+						text-decoration: none;
+					}
+				}
+			}
+			@include breakpoint(sm) {
+				float: none;
+				text-align: center;
+				li{
+					text-align: center;
+					display: inline;
 				}
 			}
 		}

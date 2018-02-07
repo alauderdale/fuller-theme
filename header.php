@@ -11,6 +11,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" <?php language_attributes(); ?>> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
+
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
 
@@ -21,6 +22,7 @@
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+
 
 <?php wp_head(); ?>
 
@@ -34,7 +36,7 @@
       <div class='container half-padding-bottom'>
         <div class='navbar-header'>
           <a class='navbar-brand' href='<?php bloginfo('url')?>'>
-            <img src='<?php bloginfo('template_url'); ?>/images/logo.png' width='169'>
+            <img src='<?php the_field('logo', 'option'); ?>' width='169'>
           </a>
           <div class='navbar-right'>
             <ul class='nav navbar-nav'>

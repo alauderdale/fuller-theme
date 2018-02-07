@@ -48,7 +48,7 @@ do_action( 'job_manager_job_filters_before', $atts );
 							<div class="search_location form-group">
 								<div class='inner-addon left-addon'>
 									<i class='fa fa-map-marker'></i>
-									<input type="text" name="search_location" class="form-control input-lg" id="search_location" placeholder="<?php esc_attr_e( 'Location', 'wp-job-manager' ); ?>" value="<?php echo esc_attr( $location ); ?>" />
+									<input type="text" name="search_location" class="form-control input-lg" id="search_location" placeholder="City, state or zip" value="<?php echo esc_attr( $location ); ?>" />
 								</div>
 							</div>
 							<button class='btn btn-primary' type='submit'>

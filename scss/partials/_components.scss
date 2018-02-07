@@ -49,3 +49,25 @@ ul.pagination{
 		}
 	}
 }
+
+
+//disclaimer alert
+
+
+
+.disclaimer-alert{
+	a{
+		text-decoration:underline;
+	}
+	h5{
+		text-align:center;
+	}
+}
+
+.text-left{
+	.disclaimer-alert{
+		h5{
+			text-align:left;
+		}
+	}
+}

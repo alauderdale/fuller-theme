@@ -33,6 +33,20 @@ label{
   color: $text-color; 
 }
 
+
+//google autocomplete-suggestion
+.pac-container{
+  z-index:9999;
+  .pac-item{
+    font-size:16px!important;
+    color: $text-color; 
+    padding: 5px .8em!important; 
+  }
+}
+.pac-container:after{
+    content:none !important;
+}
+
 /* enable absolute positioning */
 .inner-addon {
   position: relative;

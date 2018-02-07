@@ -19,63 +19,43 @@
             <div class='media-body'>
               <div class='media-heading'>
                 <h5 class='half-margin-top'>
-                  © 2017 Fuller Theological Seminary
+                  <?php the_field('footer_copyright_text', 'option'); ?>
                 </h5>
               </div>
             </div>
           </div>
         </div>
         <div class='col-sm-6'>
-          <ul class='social-list list-inline'>
-            <li>
-              <a class='social-font-name' href='#'>
-                F
-              </a>
-            </li>
-            <li>
-              <a class='social-font-name' href='#'>
-                L
-              </a>
-            </li>
-            <li>
-              <a class='social-font-name' href='#'>
-                X
-              </a>
-            </li>
-          </ul>
-          <ul class='social-list list-inline quarter-margin-right'>
-            <li>
-              <a class='social-font-name-two' href='#'>
-                I
-              </a>
-            </li>
-          </ul>
+          <?php wp_nav_menu( array( 
+                'theme_location' => 'menu-social', 
+                'container' => false, 
+                'menu_class' => 'social-list',
+                'items_wrap'  => '<ul id="%1$s" class="%2$s">  %3$s</ul>' 
+          )); ?>
+          <?php wp_nav_menu( array( 
+            'theme_location' => 'menu-social-two', 
+            'container' => false, 
+            'menu_class' => 'social-list-two',
+            'items_wrap'  => '<ul id="%1$s" class="%2$s">  %3$s</ul>' 
+          )); ?>
         </div>
       </div>
       <div class='row'>
         <div class='col-md-10 margin-top'>
-          <p class='medium-font-name'>
-            Disclaimer
-          </p>
-          <h5 class='light-text-color'>
-            The purpose of the Fuller Theological Seminary Website is to provide information about the Seminary, its mission, programs, services, and resources.  The Seminary uses reasonable efforts to ensure that all content published at this website is current and accurate.
-          </h5>
-          <h5 class='light-text-color'>
-            Fuller Theological Seminary may provide links to resources outside of the Seminary for viewers' convenience and information only; such links do not constitute an endorsement or approval by the Seminary of any products, services, or opinions in linked content.  Accordingly, Fuller Theological Seminary bears no responsibility for the accuracy, legality, content, or cyber security of any external websites, whether linked by the Seminary's websites or otherwise.
-          </h5>
-          <h5 class='light-text-color'>
-            Questions or comments about the Seminary's webs site may be directed to
-            <a href='#'>
-              websupport@fuller.edu
-            </a>
-            . Questions concerning non-Fuller sites must be directed toward the owners or operators of such sites.
-          </h5>
+          <div class="footer-disclaimer">
+            <p class='medium-font-name'>
+              <?php the_field('disclaimer_title', 'option'); ?>
+            </p>
+            <?php the_field('disclaimer', 'option'); ?>
+          </div>
         </div>
         <div class='col-md-2'></div>
       </div>
     </div>
   </footer>
   <?php wp_footer(); ?>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2uqyFCdcw3XYbob-_s5nZM5y2X7bPvfI&libraries=places&callback=activatePlacesSearch"></script>
+
 </body>
 </head>
 </html>
