@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div class="col-md-9">
-	<div class='panel'>
+	<div class='panel no-margin-bottom'>
 		<div class='panel-body'>
 			<div class='results-header'>
 				<h3 class='medium-font-name no-margin-bottom'>

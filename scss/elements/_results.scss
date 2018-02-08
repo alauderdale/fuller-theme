@@ -1,3 +1,7 @@
+.job_listings{
+	margin-bottom:0!important;
+}
+
 ul.results-list{
 	li{
 		border-color:$border-color;
@@ -28,17 +32,38 @@ a.result{
 
 //filters
 
-@include breakpoint(sm) {
+@include breakpoint(md) {
 	.filter-header{
-		display:none;
+		cursor:pointer;
+		position:relative;
+		border-bottom:none!important;
+		&:after{
+			content:'\f078';
+			font-family: 'FontAwesome';
+			position:absolute;
+			right:25px;
+			top:50%;
+			margin-top:-8px;
+		}
 		&.filter-header-open{
-
+			&:after{
+				filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+				-webkit-transform: scale(1, -1);
+				-ms-transform: scale(1, -1);
+				transform: scale(1, -1);
+			}
 		}
 	}
 
 	.job-filters-container{
+		max-height: 0;            
+		overflow-y: hidden;
+		-webkit-transition: max-height 0.2s ease-in-out;
+		-moz-transition: max-height 0.2s ease-in-out;
+		-o-transition: max-height 0.2s ease-in-out;
+		transition: max-height 0.2s ease-in-out;
 		&.open{
-
+			max-height: 458px;  
 		}
 	}
 }
