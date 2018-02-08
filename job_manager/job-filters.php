@@ -22,49 +22,50 @@ do_action( 'job_manager_job_filters_before', $atts );
 <div class="col-md-3">
 
 	<div class='panel filter-panel'>
-		<div class='panel-body'>
+		<div class='panel-body filter-header'>
 			<h5 class='no-margin-bottom'>
 				<i class='fa fa-filter'></i>
 				Filter results
 			</h5>
 		</div>
 
+		<div class="job-filters-container">
+			<form class="job_filters">
+				<?php do_action( 'job_manager_job_filters_start', $atts ); ?>
 
-		<form class="job_filters">
-			<?php do_action( 'job_manager_job_filters_start', $atts ); ?>
-
-			<div class="search_jobs">
-				<?php do_action( 'job_manager_job_filters_search_jobs_start', $atts ); ?>
-				<div class='results-search-form'>
-					<div class='form-inner'>
-						<div class="form-inline">
-							<div class="search_keywords form-group">
-								<div class='inner-addon left-addon'>
-									<i class='fa fa-search'></i>
-									<input type="text" name="search_keywords" class="form-control input-lg " id="search_keywords" placeholder="<?php esc_attr_e( 'Keywords', 'wp-job-manager' ); ?>" value="<?php echo esc_attr( $keywords ); ?>" />
+				<div class="search_jobs">
+					<?php do_action( 'job_manager_job_filters_search_jobs_start', $atts ); ?>
+					<div class='results-search-form'>
+						<div class='form-inner'>
+							<div class="form-inline">
+								<div class="search_keywords form-group">
+									<div class='inner-addon left-addon'>
+										<i class='fa fa-search'></i>
+										<input type="text" name="search_keywords" class="form-control input-lg " id="search_keywords" placeholder="<?php esc_attr_e( 'Keywords', 'wp-job-manager' ); ?>" value="<?php echo esc_attr( $keywords ); ?>" />
+									</div>
 								</div>
-							</div>
 
-							<div class="search_location form-group">
-								<div class='inner-addon left-addon'>
-									<i class='fa fa-map-marker'></i>
-									<input type="text" name="search_location" class="form-control input-lg" id="search_location" placeholder="City, state or zip" value="<?php echo esc_attr( $location ); ?>" />
+								<div class="search_location form-group">
+									<div class='inner-addon left-addon'>
+										<i class='fa fa-map-marker'></i>
+										<input type="text" name="search_location" class="form-control input-lg" id="search_location" placeholder="City, state or zip" value="<?php echo esc_attr( $location ); ?>" />
+									</div>
 								</div>
+								<button class='btn btn-primary' type='submit'>
+									Search
+								</button>
 							</div>
-							<button class='btn btn-primary' type='submit'>
-								Search
-							</button>
 						</div>
 					</div>
+
+			<!-- 		category options removed here -->
+
+					<?php do_action( 'job_manager_job_filters_search_jobs_end', $atts ); ?>
 				</div>
 
-		<!-- 		category options removed here -->
-
-				<?php do_action( 'job_manager_job_filters_search_jobs_end', $atts ); ?>
-			</div>
-
-			<?php do_action( 'job_manager_job_filters_end', $atts ); ?>
-		</form>
+				<?php do_action( 'job_manager_job_filters_end', $atts ); ?>
+			</form>
+		</div>
 	</div>
 </div>
 <?php do_action( 'job_manager_job_filters_after', $atts ); ?>

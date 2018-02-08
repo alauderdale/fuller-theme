@@ -16,6 +16,11 @@ $(document).ready(function(){
   		$( ".results-search-form" ).toggleClass( "search-on" );
 	});
 
+    $( ".filter-header" ).click(function() {
+        $(this).toggleClass( "filter-header-open" );
+        $( ".job-filters-container" ).toggleClass( "open" );
+    });
+
 
     $('#search_keywords').autoComplete({
         minChars: 1,

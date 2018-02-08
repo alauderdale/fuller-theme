@@ -1,6 +1,6 @@
 <div class="disclaimer-alert">
 	<h5 class="no-margin-bottom dark-text-color">Please read our 
-		<a href="" data-toggle="modal" data-target="#disclaimerModal">disclaimer</a> before posting or searching for a job
+		<a href="" data-toggle="modal" data-target="#disclaimerModal">disclaimer</a> before posting or searching for a job.
 	</h5>
 </div>
 

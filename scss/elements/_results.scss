@@ -28,6 +28,21 @@ a.result{
 
 //filters
 
+@include breakpoint(sm) {
+	.filter-header{
+		display:none;
+		&.filter-header-open{
+
+		}
+	}
+
+	.job-filters-container{
+		&.open{
+
+		}
+	}
+}
+
 .filter-panel{
 	.panel{
 		border:none;
