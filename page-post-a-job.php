@@ -6,7 +6,7 @@ Template Name: Post a Job
 
 
 <?php get_header(); ?>
-<section class='white-section no-padding-bottom'>
+<section class='white-section no-padding-bottom padding-top'>
 	<div class='container'>
 		<div class='row'>
 			<div class='col-sm-3'></div>

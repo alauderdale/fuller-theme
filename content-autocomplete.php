@@ -22,5 +22,4 @@
 <script>
 	var termslistjson = '<?php echo $termslist ?>';
 	var termslistjsonparsed = JSON.parse(termslistjson);
-    console.log(termslistjsonparsed);
 </script>

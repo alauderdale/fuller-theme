@@ -83,3 +83,57 @@ label{
 :-moz-placeholder { /* Firefox 18- */
   color: #BAC3CA!important;
 }
+
+
+
+//multiselect
+.chosen-container-multi{
+  ul.chosen-choices{
+      border: 1px solid #E0E0E0 !important;
+      box-shadow: none!important;
+      border-radius: 2px!important;
+      padding:3px!important;
+      background-image:none!important;
+      li.search-field{
+        
+      }
+      li.search-field input[type=text]{
+        padding:9px;
+        color: #BAC3CA!important;
+        font-family:$regular-font-name;
+      }
+     li{
+        font-size: 18px;
+        padding: 10px 16px;
+        &.search-choice{
+          padding: 10px 34px 10px 15px;
+          background-image:none;
+          background:#f2f2f2;
+          border:none;
+          box-shadow:none;
+          font-size:14px;
+          .search-choice-close{
+            top: 13px;
+            right: 10px;
+          }
+        }
+     }
+  }
+  ul.chosen-results{
+    li{
+      &.active-result{
+        
+        &.highlighted{
+          background-image:none;
+          background:$primary-color!important;
+        }
+      }
+    }
+  }
+  &.chosen-container-active{
+    ul.chosen-choices{
+      border:1px solid $primary-color!important;
+    }
+  }
+
+}

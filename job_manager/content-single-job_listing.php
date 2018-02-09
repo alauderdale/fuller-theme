@@ -55,42 +55,41 @@ global $post;
 						<div class='col-lg-12'>
 							<div class='panel'>
 								<div class='panel-body'>
-									<div class='col-sm-9'>
-										<div class='media'>
-											<div class='media-left hidden-xs'>
-												<img class='media-object quarter-margin-right' src='<?php bloginfo('template_url'); ?>/images/job-image-placeholder.png' width='155px'>
-											</div>
-											<div class='media-body'>
-												<div class='media-heading'>
-													<h3>
-														<?php the_job_field( 'job_title' );?>
-														<br>
-														<?php the_job_field( 'job_location' );?>
-													</h3>
+									<div class="row">
+										<div class='col-sm-9'>
+											<div class='media'>
+												<div class='media-left  hidden-xs'>
+													<img class='media-object quarter-margin-right' src='<?php bloginfo('template_url'); ?>/images/job-image-placeholder.png' width='155px'>
+												</div>
+												<div class='media-body vert-align-middle'>
+													<div class='media-heading'>
+														<h3 class="no-margin-bottom">
+															<?php the_job_field( 'job_title' );?> at <?php the_company_field( 'company_name' );?>
+															<br>
+															<?php the_job_field( 'job_location' );?>
+														</h3>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-									<div class='col-sm-3'>
-
-									<?php if ( get_company_field( 'application_method_link' ) ) : ?>
-										<a class='btn btn-block btn-primary half-margin-top' href='<?php the_job_field( 'application_method_link' );?>' target='_blank'>
-											Apply
-										</a>
-										
-									<?php elseif ( get_company_field( 'application_method_upload_application' )) : ?>
-										<a class='btn btn-block btn-primary half-margin-top' href='<?php the_job_field( 'application_method_upload_application' );?>' target='_blank'>
-											Apply
-										</a>
-									<?php elseif ( get_company_field( 'application_method_custom' )) : ?>
-										<button type="button" class="btn btn-block btn-primary half-margin-top" data-toggle="modal" data-target="#applicationInstructionsModal">
-										  Apply
-										</button>
-									<?php endif; ?>
-
-
-
-
+										<div class='col-sm-3'>
+											<div style="margin-top:20px;">
+												<?php if ( get_company_field( 'application_method_link' ) ) : ?>
+													<a class='btn btn-block btn-primary' href='<?php the_job_field( 'application_method_link' );?>' target='_blank'>
+														Apply
+													</a>
+													
+												<?php elseif ( get_company_field( 'application_method_upload_application' )) : ?>
+													<a class='btn btn-block btn-primary half-margin-top' href='<?php the_job_field( 'application_method_upload_application' );?>' target='_blank'>
+														Apply
+													</a>
+												<?php elseif ( get_company_field( 'application_method_custom' )) : ?>
+													<button type="button" class="btn btn-block btn-primary half-margin-top" data-toggle="modal" data-target="#applicationInstructionsModal">
+													  Apply
+													</button>
+												<?php endif; ?>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -105,7 +104,8 @@ global $post;
 											About the job
 										</h4>
 									</div>
-									<?php wpjm_the_job_description(); ?>
+									
+									<?php the_company_field( 'job_description' );?>
 								</div>
 							</div>
 							<div class='panel'>
@@ -235,7 +235,7 @@ global $post;
 											Industries
 										</h5>
 										<h5>
-											<?php the_job_field( 'industries' );?>
+											<?php the_job_field( 'job_category' );?>
 										</h5>
 									</div>
 								</div>

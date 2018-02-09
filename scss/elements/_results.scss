@@ -284,3 +284,20 @@ a.load_more_jobs{
 
 }
 
+
+//loader
+
+ul.job_listings {
+	&.loading {
+		background: url(../images/ajax-loader.gif) no-repeat center 32px!important;
+	}
+}
+
+.load_more_jobs {
+	&.loading {
+		background: url(../images/ajax-loader.gif) no-repeat center!important;
+	}
+}
+
+
+

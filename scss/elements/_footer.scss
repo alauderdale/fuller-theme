@@ -9,9 +9,12 @@ footer {
 			display: inline-block;
 			margin-bottom: 0;
 			float: right;
+			@include breakpoint(sm) {
+				margin-top:10px;
+			}
 			li {
 				float: left;
-				font-size: 43px;
+				font-size: 35px;
 				line-height: 1em;
 			    padding-right: 10px;
 			    font-family: $social-font-name;
@@ -36,13 +39,16 @@ footer {
 			}
 		}
 		ul.social-list-two {
+			@include breakpoint(sm) {
+				margin-top:15px;
+			}
 			list-style: none;
 			display: inline-block;
 			margin-bottom: 0;
 			float: right;
 			li {
 				float: left;
-				font-size: 43px;
+				font-size: 35px;
 				line-height: 1em;
 			    padding-right: 10px;
 			    font-family: $social-font-name-two;
