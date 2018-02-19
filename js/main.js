@@ -26,7 +26,7 @@ $(document).ready(function(){
         minChars: 1,
         source: function(term, suggest){
             term = term.toLowerCase();
-            var choices = (termslistjsonparsed);
+            var choices = (masterList);
             var suggestions = [];
             for (i=0;i<choices.length;i++)
                 if (~choices[i].toLowerCase().indexOf(term)) suggestions.push(choices[i]);

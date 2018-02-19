@@ -50,3 +50,31 @@ ul.nav{
 		}
 	}
 }
+
+li.no_job_listings_found{
+	&:hover{
+		box-shadow:none!important;
+	}
+	.listings-text{
+		padding:$baseline/4 $baseline/2 0 $baseline/2;
+	}
+	.industries-list{
+		ul.nav{
+			li{
+				font-size:14px;
+					&:hover{
+						box-shadow:none;
+					}
+					width:50%;
+					a{
+						padding:$baseline/4 $baseline/2;
+					&:hover{
+						box-shadow:none;
+						background:white!important;
+						border:none;
+					}
+				}
+			}
+		}
+	}
+}
